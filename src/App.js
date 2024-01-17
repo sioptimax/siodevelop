@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container } from "@mui/material"
+import { Routes, Route } from "react-router-dom";
+
+import NavbarSIO from './components/NavbarSIO/NavbarSIO';
+import PatientDataForm from "./pages/PatientData/Form/PatientDataForm";
+import PatientHistoryForm from "./pages/PatientHistory/PatientHistoryForm";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavbarSIO />
+        <Container maxWidth="ls">
+          <Routes>
+            <Route path="/" element={ <PatientDataForm />} />
+            <Route path="/patientdata" element={ <PatientDataForm />} />
+            <Route path="/patienthistory" element={ <PatientHistoryForm />} />
+          </Routes>
+        </Container>
+
+    </>
   );
 }
 
